@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import './style.css'
 
 class Xiaojiejie extends Component {
     constructor(props) {
@@ -14,16 +15,25 @@ class Xiaojiejie extends Component {
             // <div>
             // flex
             <Fragment>
+                {/* demo注释 */}
+                {
+                    // demo注释
+                }
                 <div>
-                    <input value={this.state.inputVal} onChange={this.inputChange.bind(this)} />
+                    <label htmlFor="zj">增加服务:</label>
+                    <input id="zj" className="ipt" value={this.state.inputVal} onChange={this.inputChange.bind(this)} />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
                 <ul>
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <li key={index + item} onClick={this.delItem.bind(this, index)}>
-                                    {item}
+                                <li 
+                                    key={index + item} 
+                                    onClick={this.delItem.bind(this, index)}
+                                    dangerouslySetInnerHTML={{__html:item}}
+                                    
+                                >
                                 </li>
                             )
                         })
