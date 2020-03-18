@@ -22,10 +22,16 @@ class Xiaojiejie extends Component {
                 }
                 <div>
                     <label htmlFor="zj">增加服务:</label>
-                    <input id="zj" className="ipt" value={this.state.inputVal} onChange={this.inputChange.bind(this)} />
+                    <input 
+                        id="zj" 
+                        className="ipt" 
+                        value={this.state.inputVal} 
+                        onChange={this.inputChange.bind(this)}
+                        ref = {(input) => {this.input = input}}
+                    />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
-                <ul>
+                <ul ref={(ul)=>{this.ul = ul}}>
                     {
                         this.state.list.map((item, index) => {
                             return (
@@ -62,9 +68,12 @@ class Xiaojiejie extends Component {
 
     // 增加列表
     addList() {
+        // setState是个异步的 虚拟dom ,  可以在setState后面加个回调函数,代表虚拟dom创建完成之后再执行
         this.setState({
             list: [...this.state.list, this.state.inputVal],
             inputVal: ''
+        },()=>{
+            console.log(this.ul.querySelectorAll('li').length);
         })
     }
 
@@ -72,7 +81,8 @@ class Xiaojiejie extends Component {
         // console.log(e.target.value);
         // this.state.inputVal = e.target.value
         this.setState({
-            inputVal: e.target.value
+            inputVal: this.input.value
+            // inputVal: e.target.value
         })
     }
 }
