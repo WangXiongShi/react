@@ -29,9 +29,9 @@ class Xiaojiejie extends Component {
                     {
                         this.state.list.map((item, index) => {
                             return (
-
+                                    // 属性传值方式,单向数据流,子组件不可修改
                                     <XiaojiejieItem 
-
+                                        avname='深田咏美'
                                         key={index+item}
                                         content={item} 
                                         index={index}
