@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 
@@ -8,7 +9,7 @@ class Xiaojiejie extends Component {
         super(props)
         this.state = {
             inputVal: '',
-            list: ['头部按摩', '精油推背']
+            list: []
         }
     }
     componentWillMount(){
@@ -16,6 +17,15 @@ class Xiaojiejie extends Component {
     }
 
     componentDidMount(){
+        // rap2模拟接口调用
+        axios.get('http://rap2.taobao.org:38080/app/mock/247555/rap2test/reactDemo').then(res=>{
+            console.log(res);
+            this.setState({
+                list:res.data.data
+            })
+        }).catch(err=>{
+            console.log(err);
+        })
         console.log('componentDidMount  =>  组件挂载完成');
     }
 
