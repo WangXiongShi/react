@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
+import Boss from './boss'
 
 class Xiaojiejie extends Component {
     // 在某一时刻,可以自动执行的函数   =>  生命周期
@@ -41,7 +42,7 @@ class Xiaojiejie extends Component {
 
     componentDidUpdate(){
         console.log('4-componentDidUpdate   => 组件渲染完之后执行');
-        
+
     }
 
     // 状态或属性有所改变时执行
@@ -73,7 +74,7 @@ class Xiaojiejie extends Component {
                             return (
                                     // 属性传值方式,单向数据流,子组件不可修改
                                     <XiaojiejieItem 
-                                        avname='深田咏美'
+                                        avname='诸葛大力'
                                         key={index+item}
                                         content={item} 
                                         index={index}
@@ -86,6 +87,9 @@ class Xiaojiejie extends Component {
                     }
 
                 </ul>
+
+                <Boss />
+
             </Fragment>
             // </div>
         )
