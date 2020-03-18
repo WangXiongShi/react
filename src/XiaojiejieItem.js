@@ -7,6 +7,15 @@ class XiaojiejieItem extends Component {
         super(props)
         this.handleClick = this.handleClick.bind(this)
     }
+    // 组件第一次存在于dom中,函数是不会被执行的
+    // 如果已经存在在于dom中,函数才会被执行
+    componentWillReceiveProps(){
+        console.log('child  =>  componentWillReceiveProps');
+    }
+
+    componentWillUnmount(){
+        console.log('child  =>  子组件在删除时执行');
+    }
 
     render() { 
         return ( 

@@ -3,6 +3,7 @@ import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 
 class Xiaojiejie extends Component {
+    // 在某一时刻,可以自动执行的函数   =>  生命周期
     constructor(props) {
         super(props)
         this.state = {
@@ -10,8 +11,33 @@ class Xiaojiejie extends Component {
             list: ['头部按摩', '精油推背']
         }
     }
+    componentWillMount(){
+        console.log('componentWillMount =>  组件将要挂载到页面');
+    }
 
+    componentDidMount(){
+        console.log('componentDidMount  =>  组件挂载完成');
+    }
+
+    shouldComponentUpdate(){
+        console.log('1-shouldComponentUpdate  =>  在组件更新渲染之前执行');
+        // 需要有个boolean值,是否向下执行  true 执行  false 不执行 
+        return true
+    }
+
+    componentWillUpdata(){
+        console.log('2-componentWillUpdata    =>  ');
+    }
+
+    componentDidUpdate(){
+        console.log('4-componentDidUpdate   => 组件渲染完之后执行');
+        
+    }
+
+    // 状态或属性有所改变时执行
     render() {
+        console.log('3-render =>  组件渲染中');
+        
         return (
             // <div>
             // flex
