@@ -2,9 +2,37 @@
     border: 3px solid #ae7000;
 }
 .show{
-    opacity: 1;
-    transition: 1.5s all;
+    animation: showItem 2s ease-in forwards;
 }
 .hide{
-    opacity: 0;
+    animation: hideItem 2s ease-in forwards;
+}
+@keyframes hideItem {
+    0%{
+        opacity: 1;
+        color: yellow;
+    }
+    50%{
+        opacity: 0.5;
+        color: red;
+    }
+    100%{
+        opacity: 0;
+        color: gray;
+    }
+}
+
+@keyframes showItem {
+    0%{
+        opacity: 0;
+        color: yellow;
+    }
+    50%{
+        opacity: 0.5;
+        color: red;
+    }
+    100%{
+        opacity: 1;
+        color: gray;
+    }
 }
