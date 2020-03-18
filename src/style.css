@@ -36,3 +36,24 @@
         color: gray;
     }
 }
+
+.bossText-enter{
+    opacity: 0;
+}
+.bossText-enter-active{
+    opacity: 1;
+    transition: opacity 2000ms;
+}
+.bossText-enter-done{
+    opacity: 1;
+}
+.bossText-exit{
+    opacity: 1;
+}
+.bossText-exit-active{
+    opacity: 0;
+    transition: opacity 2000ms;
+}
+.bossText-exit-done{
+    opacity: 0;
+}

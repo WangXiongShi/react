@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CSSTransition} from 'react-transition-group'
 class boss extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,15 @@ class boss extends Component {
     render() { 
         return ( 
             <div>
-                <div className={this.state.isShow ? 'show' : 'hide'}>boss级人物-孙悟空</div>
+                <CSSTransition 
+                    in={this.state.isShow}
+                    timeout={2000}
+                    classNames='bossText'
+                    unmountOnExit
+                >
+                    <div>boss级人物-孙悟空</div>
+                </CSSTransition>
+                {/* <div className={this.state.isShow ? 'show' : 'hide'}>boss级人物-孙悟空</div> */}
                 <button onClick={this.toToggole}>召唤boss</button>
             </div>
         );
