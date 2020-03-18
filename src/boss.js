@@ -11,6 +11,7 @@ class boss extends Component {
     render() { 
         return ( 
             <div>
+                {/* unmountOnExit 删除dom元素 */}
                 <CSSTransition 
                     in={this.state.isShow}
                     timeout={2000}
