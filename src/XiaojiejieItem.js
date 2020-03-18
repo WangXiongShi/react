@@ -17,7 +17,16 @@ class XiaojiejieItem extends Component {
         console.log('child  =>  子组件在删除时执行');
     }
 
+    // nextProps 将要变化的属性 , 将要变化的状态
+    shouldComponentUpdate(nextProps,nextState){
+        // console.log('child-shouldComponentUpdate  =>  在组件更新渲染之前执行');
+        // 需要有个boolean值,是否向下执行  true 执行  false 不执行 
+        if(nextProps.content !== this.props.content) return true
+        else return false
+    }
+
     render() { 
+        console.log('child => render');
         return ( 
             <li onClick={this.handleClick}>
                 {this.props.avname}为你做-{this.props.content}
